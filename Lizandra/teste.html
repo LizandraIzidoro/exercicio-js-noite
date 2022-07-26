@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<title>getElementById JavaScript</title>
+<meta charset="UTF-8">
+<script>
+    function calculaQudrado() {
+    var valor = document.getElementById("idNumero").value;
+    
+    // Calcular quadrado e inserir valor calculado na caixa de texto adequada:
+    var quadrado = valor * valor; 
+    document.getElementById("idCalculado").value = quadrado
+    
+    // Escrever na página (usando conteiner span):
+    document.getElementById("calculaValor").innerHTML = "O quadrado calculado é " + quadrado + " .";
+    
+    document.getElementById("numeroDigitado").innerHTML = "O quadrado de " + valor + " é: ";
+    
+    // Para testes apenas:
+    console.log(idNumero.value);
+    }
+    </script>
+</head>
+
+<body>
+
+<h2>Calcular o quadrado de um número</h2>
+
+<form name="formTeste" method="GET" >
+<input type="text" name="numero" id="idNumero"><br><br>
+<button type="button" name="botao" id="idBotao" onclick="calculaQudrado();">Calcular Quadrado!</button><br><br>
+<label for="idcalculado"><span id="numeroDigitado"></span></label>
+<input type="text" name="valorQuadrado" id="idCalculado"> 
+</form>
+
+<p><span id="calculaValor"></span></p>
+</body>
+</html>
+
+Exemplo 04
+
+Agora vamos trabalhar com uma caixa de cores (HTML5), que nos permitirá selecionar as cores do texto e de fundo a serem aplicadas em um conteiner <span>:
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<title>Exemplo getElementById</title>
+<meta charset="UTF-8">
+
+<script>
+estado = 0;
+
+function mudaCores() {
+  var elemento = document.getElementById("item");
+  var cor = document.querySelector("#paletaCor");
+  var corFundo = document.querySelector("#paletaCorFundo");
+  if (estado == 0) {
+    elemento.style.color = cor.value;
+    elemento.style.backgroundColor = corFundo.value;
+    elemento.style.border = "3px solid purple";
+    elemento.style.fontSize = "200%";
+    estado = 1;
+  }
+  else {
+    elemento.style.color = "black";
+    elemento.style.backgroundColor = "white";
+    elemento.style.border = "none"; 
+    elemento.style.fontSize = "100%";
+    estado = 0;
+  }
+}
+</script>
+</head>
+
+<body>
+
+<p>Se inscreva no canal da <span id="item">Bóson Treinamentos em Tecnologia</span>!</p>
+<label for="paletaCor">Cor do texto:</label>
+<input type="color" value="#0000ff" id="paletaCor">
+
+<label for="paletaCorFundo">Cor do fundo:</label>
+<input type="color" value="#0000ff" id="paletaCorFundo">
+<br><br>
+<button onclick="mudaCores();">Aplica Cores Selecionadas</button>
+
+</body>
+
+
+</html>
